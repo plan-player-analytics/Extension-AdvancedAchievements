@@ -23,35 +23,42 @@
 package com.djrapitops.extension;
 
 import com.djrapitops.plan.extension.DataExtension;
-import com.djrapitops.plan.extension.extractor.ExtensionExtractor;
+import com.djrapitops.plan.extension.annotation.NumberProvider;
+import com.djrapitops.plan.extension.annotation.PluginInfo;
+import com.djrapitops.plan.extension.icon.Color;
+import com.djrapitops.plan.extension.icon.Family;
 import com.hm.achievement.api.AdvancedAchievementsAPI;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import com.hm.achievement.api.AdvancedAchievementsAPIFetcher;
 
-import static org.mockito.Mockito.mock;
+import java.util.UUID;
 
 /**
- * Test for the implementation of the new extension
+ * DataExtension for AdvancedAchievements plugin.
  *
  * @author Rsl1122
  */
-class ExtensionImplementationTest {
+@PluginInfo(name = "AdvancedAchievements", iconName = "star", iconFamily = Family.SOLID, color = Color.GREEN)
+public class AdvancedAchievementsExtension implements DataExtension {
 
-    private ExtensionExtractor extractor;
+    private final AdvancedAchievementsAPI api;
 
-    @BeforeEach
-    void prepareExtractor() {
-        AdvancedAchievementsAPI apiMock = mock(AdvancedAchievementsAPI.class);
-
-        DataExtension extension = new AdvancedAchievementsExtension(apiMock);
-        extractor = new ExtensionExtractor(extension);
+    // For testing
+    AdvancedAchievementsExtension(AdvancedAchievementsAPI api) {
+        this.api = api;
     }
 
-    @Test
-    @DisplayName("API is implemented correctly")
-    void noImplementationErrors() {
-        extractor.validateAnnotations();
+    public AdvancedAchievementsExtension() {
+        this.api = AdvancedAchievementsAPIFetcher.fetchInstance().orElseThrow(() -> new IllegalStateException("API not present"));
     }
 
+    @NumberProvider(
+            text = "Achievements",
+            description = "How many achievements the player has",
+            iconName = "check-circle",
+            iconFamily = Family.REGULAR,
+            iconColor = Color.GREEN
+    )
+    public long achievementCount(UUID playerUUID) {
+        return api.getPlayerTotalAchievements(playerUUID);
+    }
 }

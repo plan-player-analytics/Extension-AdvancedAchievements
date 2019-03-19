@@ -5,13 +5,30 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.djrapitops</groupId>
-    <artifactId>Extension-template</artifactId>
+    <artifactId>Extension-AdvancedAchievements</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
     <repositories>
         <repository>
             <id>plan-bintray</id>
             <url>https://dl.bintray.com/rsl1122/Plan-repository/</url>
+        </repository>
+
+        <repository>
+            <id>advanced-achievements-repo</id>
+            <url>https://raw.github.com/PyvesB/AdvancedAchievements/mvn-repo/</url>
         </repository>
 
         <!-- Platforms -->
@@ -43,12 +60,12 @@
         </dependency>
 
         <!-- Plugin API Dependency -->
-        <!--<dependency>-->
-        <!--<groupId></groupId>-->
-        <!--<artifactId></artifactId>-->
-        <!--<version></version>-->
-        <!--<scope>provided</scope>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>com.hm.achievement</groupId>
+            <artifactId>advanced-achievements-api</artifactId>
+            <version>1.1.0</version>
+            <scope>provided</scope>
+        </dependency>
 
         <!-- Platforms -->
 
@@ -93,12 +110,11 @@
         </dependency>
     </dependencies>
 
-    <!-- TODO add name of the extension to the url-->
-    <!--<distributionManagement>-->
-    <!--<repository>-->
-    <!--<id>bintray-rsl1122-Plan-repository</id>-->
-    <!--<name>rsl1122-Plan-repository</name>-->
-    <!--<url>https://api.bintray.com/maven/rsl1122/Plan-repository/<name>/;publish=1</url>-->
-    <!--</repository>-->
-    <!--</distributionManagement>-->
+    <distributionManagement>
+        <repository>
+            <id>bintray-rsl1122-Plan-repository</id>
+            <name>rsl1122-Plan-repository</name>
+            <url>https://api.bintray.com/maven/rsl1122/Plan-repository/Extension-AdvancedAchievements/;publish=1</url>
+        </repository>
+    </distributionManagement>
 </project>

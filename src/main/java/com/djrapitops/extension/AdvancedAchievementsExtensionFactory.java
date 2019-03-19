@@ -23,21 +23,25 @@
 package com.djrapitops.extension;
 
 import com.djrapitops.plan.extension.DataExtension;
-import com.djrapitops.plan.extension.annotation.PluginInfo;
-import com.djrapitops.plan.extension.icon.Color;
-import com.djrapitops.plan.extension.icon.Family;
 
 /**
- * Template for new DataExtension.
+ * For creating the DataExtension.
  *
  * @author Rsl1122
  */
-@PluginInfo(name = "", iconName = "", iconFamily = Family.SOLID, color = Color.NONE)
-public class NewExtension implements DataExtension {
+public class AdvancedAchievementsExtensionFactory {
 
-    public NewExtension() {
-        // TODO Add required API classes
+    public boolean isAvailable() {
+        try {
+            Class.forName("com.hm.achievement.AdvancedAchievements");
+            return true;
+        } catch (ClassNotFoundException e) {
+            return false;
+        }
     }
 
-    // TODO Add Provider methods
+    public DataExtension createExtension() {
+        return new AdvancedAchievementsExtension();
+    }
+
 }
