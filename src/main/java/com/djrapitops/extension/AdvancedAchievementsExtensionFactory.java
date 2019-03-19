@@ -23,6 +23,9 @@
 package com.djrapitops.extension;
 
 import com.djrapitops.plan.extension.DataExtension;
+import org.bukkit.Bukkit;
+
+import java.util.Optional;
 
 /**
  * For creating the DataExtension.
@@ -31,17 +34,24 @@ import com.djrapitops.plan.extension.DataExtension;
  */
 public class AdvancedAchievementsExtensionFactory {
 
-    public boolean isAvailable() {
+    private boolean isAvailable() {
         try {
             Class.forName("com.hm.achievement.AdvancedAchievements");
-            return true;
+            return Bukkit.getPluginManager().isPluginEnabled("AdvancedAchievements");
         } catch (ClassNotFoundException e) {
             return false;
         }
     }
 
-    public DataExtension createExtension() {
-        return new AdvancedAchievementsExtension();
+    public Optional<DataExtension> createExtension() {
+        try {
+            if (isAvailable()) {
+                return Optional.of(new AdvancedAchievementsExtension());
+            }
+        } catch (IllegalStateException apiNotAvailable) {
+            /* Ignore */
+        }
+        return Optional.empty();
     }
 
 }

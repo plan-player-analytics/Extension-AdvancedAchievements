@@ -33,10 +33,10 @@
 
         <!-- Platforms -->
 
-        <!--<repository>-->
-        <!--<id>spigot-repo</id>-->
-        <!--<url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>-->
-        <!--</repository>-->
+        <repository>
+            <id>spigot-repo</id>
+            <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+        </repository>
         <!--<repository>-->
         <!--<id>sponge-repo</id>-->
         <!--<url>https://repo.spongepowered.org/maven</url>-->
@@ -69,11 +69,11 @@
 
         <!-- Platforms -->
 
-        <!--<dependency>-->
-        <!--<groupId>org.spigotmc</groupId>-->
-        <!--<artifactId>spigot-api</artifactId>-->
-        <!--<version>1.12.2-R0.1-SNAPSHOT</version>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>org.spigotmc</groupId>
+            <artifactId>spigot-api</artifactId>
+            <version>1.12.2-R0.1-SNAPSHOT</version>
+        </dependency>
         <!--<dependency>-->
         <!--<groupId>org.spongepowered</groupId>-->
         <!--<artifactId>spongeapi</artifactId>-->
