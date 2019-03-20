@@ -6,7 +6,7 @@
 
     <groupId>com.djrapitops</groupId>
     <artifactId>Extension-AdvancedAchievements</artifactId>
-    <version>1.1</version>
+    <version>1.1-R0.1</version>
     <build>
         <plugins>
             <plugin>
@@ -73,6 +73,7 @@
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
             <version>1.12.2-R0.1-SNAPSHOT</version>
+            <scope>provided</scope>
         </dependency>
         <!--<dependency>-->
         <!--<groupId>org.spongepowered</groupId>-->
