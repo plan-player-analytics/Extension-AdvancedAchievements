@@ -22,6 +22,7 @@
 */
 package com.djrapitops.extension;
 
+import com.djrapitops.plan.extension.CallEvents;
 import com.djrapitops.plan.extension.DataExtension;
 import com.djrapitops.plan.extension.annotation.NumberProvider;
 import com.djrapitops.plan.extension.annotation.PluginInfo;
@@ -49,6 +50,11 @@ public class AdvancedAchievementsExtension implements DataExtension {
 
     public AdvancedAchievementsExtension() {
         this.api = AdvancedAchievementsAPIFetcher.fetchInstance().orElseThrow(() -> new IllegalStateException("API not present"));
+    }
+
+    @Override
+    public CallEvents[] callExtensionMethodsOn() {
+        return new CallEvents[]{CallEvents.PLAYER_JOIN, CallEvents.PLAYER_LEAVE};
     }
 
     @NumberProvider(
