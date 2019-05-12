@@ -22,6 +22,7 @@
 */
 package com.djrapitops.extension;
 
+import com.djrapitops.plan.capability.CapabilityService;
 import com.djrapitops.plan.extension.DataExtension;
 import org.bukkit.Bukkit;
 
@@ -37,7 +38,8 @@ public class AdvancedAchievementsExtensionFactory {
     private boolean isAvailable() {
         try {
             Class.forName("com.hm.achievement.AdvancedAchievements");
-            return Bukkit.getPluginManager().isPluginEnabled("AdvancedAchievements");
+            return Bukkit.getPluginManager().isPluginEnabled("AdvancedAchievements")
+                    && CapabilityService.getInstance().hasCapability("DATA_EXTENSION_SHOW_IN_PLAYER_TABLE");
         } catch (ClassNotFoundException e) {
             return false;
         }

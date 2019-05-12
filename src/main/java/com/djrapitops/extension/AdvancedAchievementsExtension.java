@@ -62,7 +62,8 @@ public class AdvancedAchievementsExtension implements DataExtension {
             description = "How many achievements the player has",
             iconName = "check-circle",
             iconFamily = Family.REGULAR,
-            iconColor = Color.GREEN
+            iconColor = Color.GREEN,
+            showInPlayerTable = true
     )
     public long achievementCount(UUID playerUUID) {
         return api.getPlayerTotalAchievements(playerUUID);
