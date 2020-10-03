@@ -6,7 +6,7 @@
 
     <groupId>com.djrapitops</groupId>
     <artifactId>Extension-AdvancedAchievements</artifactId>
-    <version>1.1-R0.3</version>
+    <version>6.4.0-R0.1</version>
     <build>
         <plugins>
             <plugin>
@@ -55,7 +55,7 @@
         <dependency> <!-- Plan API -->
             <groupId>com.djrapitops</groupId>
             <artifactId>Plan-api</artifactId>
-            <version>0.0.5</version>
+            <version>5.1-R0.4</version>
             <scope>provided</scope>
         </dependency>
 
