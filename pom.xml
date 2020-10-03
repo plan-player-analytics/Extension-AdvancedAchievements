@@ -27,8 +27,8 @@
         </repository>
 
         <repository>
-            <id>advanced-achievements-repo</id>
-            <url>https://raw.github.com/PyvesB/AdvancedAchievements/mvn-repo/</url>
+            <id>advanced-achievements-jitpack</id>
+            <url>https://jitpack.io</url>
         </repository>
 
         <!-- Platforms -->
@@ -61,9 +61,9 @@
 
         <!-- Plugin API Dependency -->
         <dependency>
-            <groupId>com.hm.achievement</groupId>
-            <artifactId>advanced-achievements-api</artifactId>
-            <version>1.1.0</version>
+            <groupId>com.github.pyvesb</groupId>
+            <artifactId>advanced-achievements</artifactId>
+            <version>6.4.0</version>
             <scope>provided</scope>
         </dependency>
 
